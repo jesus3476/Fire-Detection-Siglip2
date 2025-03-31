@@ -1,0 +1,5 @@
+The model categorizes images into three classes:
+
+    Class 0: "Fire" – The image shows active fire.
+    Class 1: "Normal" – The image depicts a normal, fire-free environment.
+    Class 2: "Smoke" – The image contains visible smoke, indicating potential fire risk.
